@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Send Notifications</title>
+         <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    </head>
+    <body>
+        <h2>Send flight updates</h2>
+        <form action="">
+        <label>Flight Number</label>
+        <input type='text' id='flight_no'>
+        <br> <br>
+        <label>Message</label>
+       <input type="text" id="message">
+	   <label>Date</label>
+	   <input type="Date" id="date">
+        <input type="submit" onclick="" value="Send Notifications">
+        </form>
+    </body>
+    <script>
+      $(function () {
+        var socket = io();  
+        $('form').submit(function(){
+          socket.emit('chat message',"Flight no. : "+$('#flight_no').val()+" - "+ $('#message').val());
+          $('#message').val('');
+          $('#flight_no').val('');
+          $('date').val('');
+          return false;
+        });
+      });
+    </script> 
+</html>
