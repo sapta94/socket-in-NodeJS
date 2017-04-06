@@ -6,10 +6,10 @@
         <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     </head>
     <body>
-        <h2>Send flight updates</h2>
+        <h2>Send message updates</h2>
         <form action="">
-        <label>Flight Number</label>
-        <input type='text' id='flight_no'>
+        <label>Your Name</label>
+        <input type='text' id='myname'>
         <br> <br>
         <label>Message</label>
        <input type="text" id="message">
@@ -22,7 +22,7 @@
       $(function () {
         var socket = io();  
         $('form').submit(function(){
-          socket.emit('chat message',"Flight no. : "+$('#flight_no').val()+" - "+ $('#message').val());
+          socket.emit('chat message',"Client : "+$('#myname').val()+" - "+ $('#message').val());
           $('#message').val('');
           $('#flight_no').val('');
           $('date').val('');
